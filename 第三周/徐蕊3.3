@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 450px;
+            height: 350px;
+            margin: 0 auto;
+            background-color: rgba(0, 204, 255);
+        }
+
+        .register {
+            width: 450px;
+            height: 50px;
+            background-color: rgba(0, 153, 204);
+            text-align: center;
+        }
+
+        .register h3 {
+            line-height: 50px;
+            margin: 0 auto;
+            font-size: 23px;
+            color: white;
+        }
+
+        input {
+            display: block;
+            width: 320px;
+            height: 45px;
+            margin: 0 auto;
+            outline: none;
+        }
+
+        .id {
+            margin-top: 30px;
+        }
+
+        .warn {
+            padding: 5px 0;
+            margin: 0;
+            height: 40px;
+            margin-left: 35px;
+        }
+
+        .warn1 {
+            display: none;
+            font-size: 15px;
+            line-height: 40px;
+            color: red;
+            margin-left: 30px;
+        }
+
+        .warn2 {
+            display: block;
+            font-size: 15px;
+            line-height: 40px;
+            color: red;
+        }
+
+        button {
+            display: block;
+            width: 320px;
+            height: 45px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: rgba(0, 153, 204);
+            color: white;
+            border: white;
+            font: 16px 黑体;
+            font-weight: 700;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="register">
+            <h3>注册</h3>
+        </div>
+        <div class="box1">
+            <input class="id" id="name" placeholder="请输入您的用户名">
+            <div class="warn">
+                <p class="warn1" id="w1">用户名长度必须为6到18位！</p>
+                <p class="warn1" id="w2">用户名必须以英文字母开头！</p>
+            </div>
+            <input class="password" id="key" placeholder="请输入您的密码">
+            <div class="warn">
+                <p class="warn1" id="w3">密码长度不能小于6位！</p>
+            </div>
+            <button id="btn">提交</button>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("btn");
+        var W1 = document.getElementById("w1");
+        var W2 = document.getElementById("w2");
+        var W3 = document.getElementById("w3");
+        btn.onclick = function () {
+            W1.setAttribute('style', 'display:none');
+            W2.setAttribute('style', 'display:none');
+            W3.setAttribute('style', 'display:none');
+            var username = document.getElementById("name").value;
+            var userkey = document.getElementById("key").value;
+            if (username.length > 18 || username.length < 6) {
+                W1.setAttribute('style', 'display:block');
+            }
+            var keynode = username.charCodeAt(0);
+            if (userkey.length < 6) {
+                W3.setAttribute('style', 'display:block');
+            }
+            var keycode = username.charCodeAt(0);
+            if (keycode < 65 || (keycode > 90 && keycode < 97) || keycode > 122) {
+                W2.setAttribute('style', 'display:block');
+            }
+
+        }
+    }
+</script>
+
+</html>
