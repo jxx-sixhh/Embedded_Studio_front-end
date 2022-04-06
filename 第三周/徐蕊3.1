@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
     <style>
         * {
@@ -12,131 +11,61 @@
             padding: 0;
         }
 
-        .boxall {
-            text-align: center;
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        textarea {
+            display: block;
+            width: 530px;
+            height: 180px;
+            margin: 100px auto 0;
+        }
+
+        .btn {
+            width: 530px;
             margin: 0 auto;
-            width: 860px;
-            height: 100%;
+            text-align: right;
         }
 
-        .boxall .box {
-            width: 100%;
-            height: 130px;
-            border-top: 2px solid #ccc;
+        button {
+            padding: 3px 30px;
         }
 
-        .box:hover {
-            background-color: #F8F8F8;
-            cursor: pointer;
+        .content {
+            margin: 0 auto;
+            width: 530px;
         }
 
-        .box img {
-            float: left;
-            height: 100px;
-            margin: 15px 0;
-        }
-
-        .box .fr {
-            float: left;
-            margin-left: 20px;
-            text-align: left;
-        }
-
-        .box .fr span {
-            padding: 2px 5px;
-        }
-
-        .box .fr h5 {
-            font: 20px 黑体;
-            margin: 15px 0;
-        }
-
-        .box .fr .tags {
-            margin: 10px 0;
-        }
-
-        .box .fr .tag1 {
-            color: #cccc00;
-            font-size: 16px;
-        }
-
-        .box .fr .tag2 {
-            background-color: #eee;
-            color: #999;
-            font-size: 14px;
-        }
-
-        .box .fr .others {
-            margin: 10px 0;
-        }
-
-        .box .fr .name {
-            border: 1px solid #eee;
-            border-radius: 25px;
-            font-size: 14px;
-            color: #999;
-        }
-
-        .box .fr .time {
-            font-size: 14px;
-            color: #999;
+        .contentlist {
+            line-height: 50px;
+            border-bottom: 1px solid black;
+            text-indent: 2em;
         }
     </style>
 </head>
 
 <body>
-    <div class="boxall">
-        <div class="box">
-            <img src="images/4.jpg" alt="">
-            <div class="fr">
-                <h5>不只有看肤色挑唇色 选对口红衣服更美</h5>
-                <div class="tags">
-                    <span class="tag1">标签</span>
-                    <span class="tag2">唇膏</span>
-                    <span class="tag2">衣服</span>
-                    <span class="tag2">粉色</span>
-                    <span class="tag2">化妆</span>
-                    <span class="tag2">美容美体</span>
-                </div>
-                <div class="others">
-                    <span class="name">悦己self</span>
-                    <span class="time">2016-10-18</span>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <img src="images/5.jpg" alt="">
-            <div class="fr">
-                <h5>学画红唇妆 让你的女王范分分钟秒杀路人</h5>
-                <div class="tags">
-                    <span class="tag1">标签</span>
-                    <span class="tag2">唇膏</span>
-                    <span class="tag2">衣服</span>
-                    <span class="tag2">粉色</span>
-                    <span class="tag2">化妆</span>
-                    <span class="tag2">美容美体</span>
-                </div>
-                <div class="others">
-                    <span class="name">毛戈平形象艺术学校</span>
-                    <span class="time">2016-10-18</span>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <img src="images/6.jpg" alt="">
-            <div class="fr">
-                <h5>无数次给国外博主跪了 把自己的脸画成漫画人物好逼真</h5>
-                <div class="tags">
-                    <span class="tag1">标签</span>
-                    <span class="tag2">美容美体</span>
-                </div>
-                <div class="others">
-                    <span class="name">八公举</span>
-                    <span class="time">2016-10-18</span>
-                </div>
-            </div>
-        </div>
+    <textarea cols="30" rows="10"></textarea>
+    <div class="btn">
+        <button>提交</button>
     </div>
+    <ul class="content"></ul>
+    <script>
+        let btn = document.querySelector("button"),
+            textArea = document.querySelector("textarea"),
+            content = document.querySelector(".content");
+        btn.onclick = function () {
+            if (textArea.value) {
+                content.innerHTML += "<li class='contentlist'>" + textArea.value + "</li>";
+                textArea.value = "";
+            } else {
+                alert("请输入内容！")
+            }
+        }
+
+    </script>
 </body>
 
 </html>
