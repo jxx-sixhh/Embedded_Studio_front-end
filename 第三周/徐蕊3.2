@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 450px;
+            margin: 0 auto;
+        }
+
+        body {
+            background-color: rgba(238, 238, 238);
+        }
+
+        ul {
+            width: 450px;
+            height: 30px;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        ul li {
+            float: left;
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        ul li:hover {
+            background-color: #aaa;
+        }
+
+        .box {
+            height: 300px;
+        }
+
+        .news {
+            background-color: #fff;
+            border-bottom: 1px dotted #aaa;
+            padding: 8px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box1">
+        <nav id="nav">
+            <ul>
+                <li class="act">热图排行</li>
+                <li>美图速递</li>
+                <li>前沿科技</li>
+            </ul>
+        </nav>
+        <div class="main" id="main">
+            <div class="box">
+                <div class="news">习近平出席推进“一带一路”建设工作5周年座谈会</div>
+                <div class="news">中共时隔近三年再修党纪条例 这些高压线不能碰</div>
+                <div class="news">全国高中2019年秋季起分步实施新课程使用新教材</div>
+                <div class="news">个税法修正案草案将二审 起征点会否超5000元？</div>
+            </div>
+            <div class="box">
+                <div class="news">鹅教官、羊陪练... ...这所中学养的动物成了“网红”</div>
+                <div class="news">最伤身体的10个生活习惯，一定要避开</div>
+                <div class="news">12岁孩子带着父亲去西藏，吃住行自己拿主意</div>
+                <div class="news">16岁男孩暑假干了俩月工地，练出满身肌肉，只为赚学费</div>
+            </div>
+            <div class="box">
+                <div class="news">鹅教官、羊陪练... ...啊啊啊啊啊</div>
+                <div class="news">最伤身体的10个生活习惯，啦啦啦啦啦</div>
+                <div class="news">12岁孩子带着父亲去西藏，哈哈哈哈哈</div>
+                <div class="news">16岁男孩暑假干了俩月工地，只为赚学费</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var nav = document.getElementById('nav');
+        var li = nav.getElementsByTagName('li');
+        var main = document.getElementById('main');
+        var box = main.getElementsByClassName('box');
+        for (var i = 0; i < li.length; i++) {
+            li[i].index = i;
+            li[i].onmouseenter = function () {
+                for (var j = 0; j < li.length; j++) {
+                    li[j].className = '';
+                    box[j].style.display = "none";
+                }
+                this.className = 'act';
+                box[this.index].style.display = "block";
+            }
+            for (var t = 1; t < li.length; t++) {
+                li[t].className = '';
+                box[t].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</html>
