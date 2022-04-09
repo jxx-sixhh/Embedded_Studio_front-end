@@ -6,3 +6,5 @@
 
 这周清明节放假，故第四周作业在下周日(4.10)前完成
 
+
+在我发布了新作业后，记得[同步仓库](https://github.com/jxx-sixhh/Embedded_Studio_front-end/blob/master/20220409%20-%E5%90%8C%E6%AD%A5fork%E7%9A%84%E4%BB%93%E5%BA%93.md)
