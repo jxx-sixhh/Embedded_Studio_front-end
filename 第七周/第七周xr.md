@@ -51,12 +51,12 @@
 
 ```js
 var n = Number(prompt('num = '));
-        var n = n.toString(2);
-        var res = '';
-        for (var i = 0; i < n.length; i++) {
-            res += n[i] == 0 ? '1' : '0';
+var n = n.toString(2);
+var res = '';
+for (var i = 0; i < n.length; i++) {
+        res += n[i] == 0 ? '1' : '0';
         }
-        console.log(parseInt(res, 2));
+console.log(parseInt(res, 2));
 ```
 
 #### 下周计划
