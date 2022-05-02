@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            position: relative;
+            width: 420px;
+            height: 200px;
+            margin: 100px auto;
+            /* background-color: red; */
+        }
+        .top {
+            width: 100%;
+            height: 40px;
+        }
+        .box span {
+            display: block;
+            float: left;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            background-color: #000000;
+        }
+        /* span:nth-of-type(1) {
+            background-color: #aaa;
+        } */
+        ul {
+            height: 160px;
+            width: 100%;
+            /* background-color: yellow; */
+        }
+        li {
+            box-sizing: border-box;
+            list-style: none;
+            padding-left: 15px;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #B8B8B8;
+        }
+        .q,
+        .w,
+        .e {
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="top">
+            <span>热门排行</span>
+            <span>美图速递</span>
+            <span>前沿科技</span>
+        </div>
+        <ul class="q" style="display: block;">
+            <li>习近平出席推进"一带一路"建设工作5周年谈会</li>
+            <li>中共时隔近三年再修党纪条例 这些高压线不能碰</li>
+            <li>全国高中2019年秋季分步实施新课程使用新教材</li>
+            <li>个税法修正草案将二审 起征点会否超过5000元</li>
+        </ul>
+        <ul class="w" style="display: none;">
+            <li>鹅教官,羊陪练.....这所中学养的动物成了"网红"</li>
+            <li>最伤身的10个生活习惯,一定要避开</li>
+            <li>12岁孩子带着孩子去西藏 吃住自己拿主意</li>
+            <li>16岁男孩暑假干了两个月工地 满身都是肌肉</li>
+        </ul>
+        <ul class="e" style="display: none;">
+            <li>克隆技术真的改变了我们的世界吗？</li>
+            <li>量子计算似乎迎来技术突破井喷的阶段</li>
+            <li>《科学》:提高玉米和水稻产量,中国团队找到了基因</li>
+            <li>大脑植入物可帮助完全"封闭患者"实现交流沟通</li>
+        </ul>
+    </div>
+    <script>
+        var top = document.querySelector('.top');
+        var myul = document.querySelectorAll('ul');
+        var myspan = document.querySelectorAll('span');
+        //大的排他思想
+            for(var j = 0;j<myspan.length;j++)
+            {
+                //开始给小ul设置索引 用来判断当前你点的是第几个 以此索引来显示下面的内容
+                myspan[j].setAttribute('index',j);
+                myspan[j].onmouseover = function() {
+                       for(var i = 0;i<myspan.length;i++)
+                    {
+                        myspan[i].style.backgroundColor  = '#000000';
+                    }
+                    this.style.backgroundColor= '#aaa';
+                    var index = this.getAttribute('index');
+                    //再次利用排他思想 将所有的先隐藏起来 但是事先需要将第一个显示的设置一下显示
+                    for(var i = 0;i<myul.length;i++){
+                        myul[i].style.display = 'none';
+                    }
+                    myul[index].style.display = 'block';
+                    // var index = this.getAttribute('index');
+                    // console.log(index);
+                }
+            }
+    </script>
+</body>
+</html>
