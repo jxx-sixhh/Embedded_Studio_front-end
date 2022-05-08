@@ -17,24 +17,24 @@
 
 # 2. 判断数据类型的方法有哪些？
 
-####1.typeof判断基本数据类型
+1.typeof判断基本数据类型
 ```javascript
 var str="123";
 typeof str;//string
 typeof function(){};//function
 ```
-####2.instanceof一般判断引用数据类型，判断一个实例是否属于某种类型
+2.instanceof一般判断引用数据类型，判断一个实例是否属于某种类型
 ```javascript
 let people=function(){};
 let Mary=new people();
 console.log(Mary instanceof people);//true
 ```
-####3.Object.prototype.toString()
+3.Object.prototype.toString()
 ```javascript
 console.log(toString.call(123));//[object Number]
 console.log(toString.call(true));//[object Boolean]
 ```
-####4.根据对象的constructor
+4.根据对象的constructor
 ```javascript
 console.log([].constructor === Array);//true
 var obj = new Object();
@@ -51,6 +51,7 @@ console.log(toString.call(arr) === '[object Array]');//4
 console.log(arr._proto_ === Array.prototype);//5.判断对象原型
 console.log(Object.getPrototypeOf(arr) === Array.prototype);//6
 console.log(Array.prototype.isPrototypeOf(arr));//7
+```
 
 # 3. null和undefined有什么区别
 1.null表示没有对象，即该处不应该有值<br/>
