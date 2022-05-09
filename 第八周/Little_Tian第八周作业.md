@@ -1,4 +1,5 @@
-### 继续学习ajax
+1. 学习剩余的JS高级内容
+2. 开始学习ES6-11的内容
 #  1.类型介绍
 ## 1.1 javascript数据类型有哪些？请按照基本数据类型和引用数据类型分类。
 基本数据类型:1.字符串(String) 2.数字(Number) 3.布尔(Boolean) 4.空(null) 5.未定义(undefined)  6.Symbol
@@ -16,6 +17,11 @@
 jQuery.isArray();jQuery.isEmptyObject();jQuery.isFunction(),jQuery.isNumberic(),jQuery.isPlainObject()等
 5.根据对象的contructor判断
 console.log('数据类型判断' -  constructor);console.log(arr.constructor === Array); //trueconsole.log(date.constructor === Date); //true console.log(fn.constructor === Function); //true
+## 怎么判断一个变量arr为数组
+typeof arr 是否为 Array
+Array.isArray(arr)是否为true
+Object.prototype.toString.call(arr)是否为[Object Array]
+console.log(arr.constructor === Array)是否为true
 # null和undefined有什么区别？
 undefined表示一个变量自然的、最原始的状态值，而null则表示一个变量被人为的设置为空对象，而不是原始状态。所以，在实际使用过程中，为了保证变量所代表的语义，不要对一个变量显式的赋值 undefined，当需要释放一个对象时，直接赋值为 null 即可。
 undefined:1.声明一个变量但是没有赋值。2.访问对象上不存在的属性或者未定义的量。3.函数定义了形参，但没有传递实参 。4.使用void对表达式求值---在使用立即执行的函数表达式时，可以利用 void 运算符让 JavaScript 引擎把一个function关键字识别成函数表达式而不是函数声明（语句）
