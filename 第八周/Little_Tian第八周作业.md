@@ -21,7 +21,7 @@ jQuery.isArray();jQuery.isEmptyObject();jQuery.isFunction(),jQuery.isNumberic(),
 5.根据对象的contructor判断
 console.log('数据类型判断' -  constructor);console.log(arr.constructor === Array); //trueconsole.log(date.constructor === Date); //true console.log(fn.constructor === Function); //true
 ## 怎么判断一个变量arr为数组
-typeof arr 是否为 Array
+~~typeof arr 是否为 Array~~错了 返回值是个对象 不可以这样判断 😰
 Array.isArray(arr)是否为true
 Object.prototype.toString.call(arr)是否为[Object Array]
 console.log(arr.constructor === Array)是否为true
