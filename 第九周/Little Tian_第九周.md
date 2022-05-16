@@ -1,5 +1,6 @@
 # 下周计划
-
+1. 学习原型链
+2. 学习部分promise
 
 # 1. let和var有什么区别？  
 1.相同:使用let与var分别声明两个变量后均未赋值的话console.log()均输出undefined.
