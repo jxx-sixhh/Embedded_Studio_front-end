@@ -63,7 +63,7 @@ for (let i = 0; i < 5; ++i) {
 } 
 console.log(i); 
 ```
-第一个打印的是6 var i声明的是全局变量  而下面let i声明的是在for的块级作用域的一个变量 全局无法访问 所以第二个console.log(i)会报错 说 i is not defined;
+第一个打印的是5(眼睛恍惚了). var i声明的是全局变量  而下面let i声明的是在for的块级作用域的一个变量 全局无法访问 所以第二个console.log(i)会报错 说 i is not defined;
 ### 1.2.4
 
 ```js
