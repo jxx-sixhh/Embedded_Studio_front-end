@@ -213,79 +213,55 @@ HTTP 状态码是用来表示网页服务器 HTTP 协议响应状态的 3 位数
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>当前时间</title>
+    <script type="text/javascript" src="js/vue.js"></script>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        table caption {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 1em 0;
-        }
-        
-        th,
-        td {
-            border: 1px solid #999;
+        span {
+            display: block;
+            width: 300px;
+            height: 50px;
+            background-color: rgb(241, 154, 169);
+            color: white;
+            line-height: 50px;
             text-align: center;
-            padding: 20px 0;
-        }
-        
-        table thead tr {
-            background-color: #008c8c;
-            color: #fff;
-        }
-        
-        table tbody tr:nth-child(odd) {
-            background-color: #eee;
-        }
-        
-        table tfoot tr td {
-            text-align: right;
-            padding-right: 20px;
+            border-radius: 25px;
+            margin: auto;
         }
     </style>
 </head>
 
 <body>
-    <button id="btn1">获取</button>
-
-    <div id="div1"></div>
-</body>
-<script>
-    var btn1 = document.getElementById('btn1');
-
-    btn1.onclick = function() {
-        var xhr = new XMLHttpRequest()
-
-        xhr.open('GET', "http://www.liulongbin.top:3006/api/getbooks");
-
-        xhr.send();
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var data1 = JSON.parse(xhr.responseText);
-
-                var list = data1.data;
-
-                var rows = [];
-                for (var i = 0; i < list.length; i++) {
-                    var str = '<tr><th>' + list[i].id + '</th><td>' + list[i].bookname +
-                        '</td><td>' + list[i].author + '</td><td>' + list[i].publisher + '</td></tr>'
-                    rows.push(str);
+    <div id="root">
+        <span>{{nowDateTime}}</span>
+    </div>
+    <script>
+        new Vue({
+            el: '#root',
+            data: {
+                nowDateTime: '', //当前日期时间
+                newTimer: ''
+            },
+            methods: {
+                getTime() {
+                    let yy = new Date().getFullYear();
+                    let mm = new Date().getMonth() + 1;
+                    let dd = new Date().getDate();
+                    let hh = new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours();
+                    let mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
+                    let ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() : new Date().getSeconds();
+                    this.nowDateTime = yy + '年 ' + mm + '月' + dd + '日 ' + hh + ':' + mf + ':' + ss;
                 }
-
-                var div1 = document.getElementById("div1");
-                div1.innerHTML = '<table><thead><tr><th>编号</th><th>书名</th><th>作者</th><th>出版社</th></tr></thead><tbody>' +
-                    rows.join("") + '</tbody></table>';
+            },
+            mounted() {
+                this.getTime()
+                clearInterval(this.newTimer)
+                this.newTimer = setInterval(this.getTime, 500)
+            },
+            beforeDestory() {
+                clearInterval(this.newTimer)
             }
-        }
-    };
-</script>
+        })
+    </script>
 </body>
 
 </html>
